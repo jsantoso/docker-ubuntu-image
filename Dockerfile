@@ -4,24 +4,63 @@ MAINTAINER Jeffrey Santoso
 
 ENV NODE_VERSION 5.12.0
 
+# ensure local python is preferred over distribution python
+ENV PATH /usr/local/bin:$PATH
+
 RUN apt-get update && apt-get install -y \
         autoconf \
         automake \
+        build-essential \
         bzip2 \
         ca-certificates \
         curl \
         file \
+        g++ \
         gcc \
         git \
         gzip \
+        imagemagick \
+        libavahi-compat-libdnssd-dev \
+        libbz2-dev \
+        libc6-dev \
+        libcurl4-openssl-dev \
+        libdb-dev \
+        libevent-dev \
+        libffi-dev \
+        libgdbm-dev \
+        libgeoip-dev \
+        libglib2.0-dev \
+        libjpeg-dev \
+        libkrb5-dev \
+        liblzma-dev \
+        libmagickcore-dev \
+        libmagickwand-dev \
+        libmysqlclient-dev \
+        libncurses-dev \
+        libpng-dev \
+        libpq-dev \
+        libreadline-dev \
+        libsqlite3-dev \
+        libssl-dev \
+        libtool \
+        libwebp-dev \
+        libxml2-dev \
+        libxslt-dev \
+        libyaml-dev \
         make \
         nginx \
-        python3.5 \
+        net-tools \
+        patch \
+        python2.7 \
+        python-dev \
+        python-distribute \
         redis-server \
         redis-tools \
         ruby-dev \
+        tar \
         wget \
         xz-utils \
+        zlib1g-dev \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN groupadd -r node && useradd -r -g node node
