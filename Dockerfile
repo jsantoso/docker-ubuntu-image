@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y \
         autoconf \
         automake \
         bzip2 \
-		ca-certificates \
-		curl \
+        ca-certificates \
+        curl \
         file \
-		gcc \
+        gcc \
         git \
         gzip \
         make \
@@ -19,9 +19,8 @@ RUN apt-get update && apt-get install -y \
         redis-server \
         redis-tools \
         wget \
-        xz-utils 
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+        xz-utils \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN groupadd -r node && useradd -r -g node node
 
@@ -48,3 +47,6 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
+
+RUN mkdir -p /opt/nodejsapp
+RUN cd /opt/nodejsapp && npm install -g strongloop gulp-ruby-sass gulp-compass nodemon lodash node-inspector bower bower-npm-resolver mocha 
