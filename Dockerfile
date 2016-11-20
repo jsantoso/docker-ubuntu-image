@@ -16,8 +16,10 @@ RUN apt-get update && apt-get install -y \
         gzip \
         make \
         nginx \
+        python3.5 \
         redis-server \
         redis-tools \
+        ruby-dev \
         wget \
         xz-utils \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
